@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srujana Manaswini.S - Premium Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-navy: #0B1426;
+            --royal-gold: #D4AF37;
+            --champagne: #F7E7CE;
+            --black-pearl: #1C1C1C;
+            --emerald: #50C878;
+            --platinum: #E5E4E2;
+            --rose-gold: #E8B4A0;
+            --midnight: #191970;
+            --cream: #FFFDD0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--deep-navy) 0%, var(--black-pearl) 50%, var(--midnight) 100%);
+            color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--royal-gold), var(--champagne));
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--emerald), var(--platinum));
+            top: 60%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, var(--rose-gold), var(--royal-gold));
+            bottom: 30%;
+            left: 70%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--royal-gold), var(--champagne), var(--rose-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--champagne);
+            letter-spacing: 2px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: var(--platinum);
+            line-height: 1.8;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, var(--royal-gold), var(--emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--royal-gold), var(--emerald));
+            border-radius: 2px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(80, 200, 120, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .skill-category:hover::before {
+            left: 100%;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            border-color: var(--royal-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--royal-gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .skill-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--champagne);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--platinum);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li::before {
+            content: '◆';
+            color: var(--emerald);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(25, 25, 112, 0.2), rgba(11, 20, 38, 0.8));
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            position: relative;
+            transition: all 0.6s ease;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.8s ease;
+            opacity: 0;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) scale(1.1);
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+            border-color: var(--royal-gold);
+            box-shadow: 0 25px 50px rgba(212, 175, 55, 0.3);
+        }
+
+        .project-number {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--royal-gold);
+            opacity: 0.3;
+        }
+
+        .project-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--champagne);
+            z-index: 2;
+            position: relative;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--platinum);
+            z-index: 2;
+            position: relative;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, var(--emerald), var(--royal-gold));
+            color: var(--deep-navy);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: linear-gradient(135deg, rgba(232, 180, 160, 0.1), rgba(212, 175, 55, 0.1));
+            border: 1px solid rgba(232, 180, 160, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            border-color: var(--rose-gold);
+            box-shadow: 0 15px 30px rgba(232, 180, 160, 0.2);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--rose-gold);
+        }
+
+        .experience-duration {
+            background: linear-gradient(135deg, var(--royal-gold), var(--champagne));
+            color: var(--deep-navy);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+
+        .experience-company {
+            font-size: 1.2rem;
+            color: var(--champagne);
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--platinum);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, rgba(80, 200, 120, 0.1), rgba(212, 175, 55, 0.1));
+            border: 1px solid rgba(80, 200, 120, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(80, 200, 120, 0.2) 0%, transparent 70%);
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .contact-item:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--emerald);
+            box-shadow: 0 15px 30px rgba(80, 200, 120, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--emerald);
+            margin-bottom: 1rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            color: var(--platinum);
+            z-index: 2;
+            position: relative;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--champagne);
+            margin-bottom: 0.5rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: linear-gradient(135deg, rgba(25, 25, 112, 0.2), rgba(80, 200, 120, 0.1));
+            border: 2px solid rgba(25, 25, 112, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.6s ease;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 1s ease;
+        }
+
+        .education-card:hover::before {
+            transform: scale(3);
+        }
+
+        .education-card:hover {
+            transform: scale(1.02);
+            border-color: var(--midnight);
+            box-shadow: 0 25px 50px rgba(25, 25, 112, 0.3);
+        }
+
+        .education-icon {
+            font-size: 4rem;
+            color: var(--royal-gold);
+            margin-bottom: 2rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .education-degree {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--champagne);
+            z-index: 2;
+            position: relative;
+        }
+
+        .education-details {
+            font-size: 1.2rem;
+            color: var(--platinum);
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .skills-grid,
+            .projects-container,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card,
+            .skill-category {
+                padding: 2rem;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        /* Luxury Accents */
+        .luxury-border {
+            position: relative;
+        }
+
+        .luxury-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--royal-gold), var(--emerald), var(--rose-gold), var(--champagne));
+            border-radius: inherit;
+            padding: 2px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Srujana Manaswini.S</h1>
+                <p class="hero-subtitle">Electrical & Electronics Engineer</p>
+                <p class="hero-description">
+                    Motivated and detail-oriented engineering professional with expertise in embedded systems, 
+                    software development, and innovative automation solutions. Passionate about bridging the gap 
+                    between traditional engineering and cutting-edge technology.
+                </p>
+                <div class="contact-grid" style="margin-top: 3rem;">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-info">srujanamanaswini@gmail.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-info">+91 6305798359</div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin contact-icon"></i>
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-info">srujana-manaswini-sorapalli</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3 class="skill-title">Programming & Development</h3>
+                    <ul class="skill-list">
+                        <li>HTML/CSS - Advanced web styling and responsive design</li>
+                        <li>Java - Object-oriented programming fundamentals</li>
+                        <li>SQL - Database management and optimization</li>
+                        <li>Bootstrap - Modern frontend framework</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-microchip skill-icon"></i>
+                    <h3 class="skill-title">Embedded Systems</h3>
+                    <ul class="skill-list">
+                        <li>Arduino Programming - Hardware control and automation</li>
+                        <li>Motor Control Systems - Brushless DC and gear motors</li>
+                        <li>Sensor Integration - Environmental and feedback systems</li>
+                        <li>Embedded C/C++ - Low-level system programming</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-bug skill-icon"></i>
+                    <h3 class="skill-title">Quality Assurance</h3>
+                    <ul class="skill-list">
+                        <li>Manual Testing - Comprehensive test case development</li>
+                        <li>SDLC - Software Development Life Cycle expertise</li>
+                        <li>STLC - Software Testing Life Cycle implementation</li>
+                        <li>Bug Life Cycle - Defect tracking and resolution</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-robot skill-icon"></i>
+                    <h3 class="skill-title">Emerging Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Computer Vision - Advanced image processing algorithms</li>
+                        <li>Face Detection - Machine learning-based recognition</li>
+                        <li>Electric Vehicle Technology - Future mobility solutions</li>
+                        <li>Automation Systems - Intelligent control mechanisms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Signature Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-number">01</div>
+                    <h3 class="project-title">Automatic Lawn Mower Robot</h3>
+                    <p class="project-description">
+                        Engineered a sophisticated autonomous lawn maintenance system integrating Arduino-based control 
+                        with precision motor systems. The robot features intelligent navigation, obstacle detection, 
+                        and optimized cutting patterns for efficient lawn care. Designed embedded algorithms for 
+                        autonomous operation while ensuring safety and reliability in outdoor environments.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">Embedded C</span>
+                        <span class="tech-tag">Motor Control</span>
+                        <span class="tech-tag">Sensor Integration</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-number">02</div>
+                    <h3 class="project-title">Dynamic Face Detection System</h3>
+                    <p class="project-description">
+                        Developed an advanced computer vision system utilizing cutting-edge machine learning algorithms 
+                        for real-time face recognition and tracking. Implemented sophisticated feature extraction 
+                        techniques and optimized database architecture for efficient storage and retrieval of facial 
+                        features. The system demonstrates high accuracy in various lighting conditions and angles.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Database Design</span>
+                        <span class="tech-tag">Algorithm Optimization</span>
+                        <span class="tech-tag">Image Processing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">Engineering Intern</h3>
+                        <p class="experience-company">South Central Railway</p>
+                    </div>
+                    <div class="experience-duration">July - September 2022</div>
+                </div>
+                <p class="experience-description">
+                    Gained valuable industrial experience working closely with senior engineering teams on critical 
+                    infrastructure projects. Assisted in monitoring regulatory compliance across multiple engineering 
+                    operations while contributing to comprehensive process optimization initiatives. Collaborated 
+                    on identifying operational inefficiencies and implementing strategic improvements that enhanced 
+                    overall departmental performance. This intensive 3-month internship provided deep insights into 
+                    large-scale engineering operations and industrial best practices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-card luxury-border">
+                <i class="fas fa-graduation-cap education-icon"></i>
+                <h3 class="education-degree">Bachelor of Technology</h3>
+                <p class="education-details">
+                    Electrical & Electronics Engineering<br>
+                    Prasad V. Potluri Siddhartha Institute of Technology, Vijayawada<br>
+                    <strong>Graduated: 2024</strong>
+                </p>
+            </div>
+            
+            <div class="skills-grid" style="margin-top: 3rem;">
+                <div class="skill-category">
+                    <i class="fas fa-car-battery skill-icon"></i>
+                    <h3 class="skill-title">Electric Vehicle Certification</h3>
+                    <ul class="skill-list">
+                        <li>Comprehensive EV technology fundamentals</li>
+                        <li>Battery management systems</li>
+                        <li>Electric motor design principles</li>
+                        <li>Future mobility trends and innovations</li>
+                    </ul>
+                    <div style="margin-top: 1rem; color: var(--royal-gold); font-weight: 600;">
+                        Certified by SkillDzire
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-laptop-code skill-icon"></i>
+                    <h3 class="skill-title">Web Development & Arduino</h3>
+                    <ul class="skill-list">
+                        <li>Advanced HTML & CSS techniques</li>
+                        <li>Arduino programming mastery</li>
+                        <li>Hardware-software integration</li>
+                        <li>Embedded systems development</li>
+                    </ul>
+                    <div style="margin-top: 1rem; color: var(--royal-gold); font-weight: 600;">
+                        Certified by Spoken Tutorials
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="project-card" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.3rem; line-height: 2; color: var(--champagne);">
+                    <strong>Motivated and detail-oriented engineering professional</strong> with a strong foundation in 
+                    electrical systems and emerging software technologies. Demonstrated expertise in bridging traditional 
+                    engineering principles with modern automation and digital solutions. 
+                </p>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-top: 2rem; color: var(--platinum);">
+                    Possesses exceptional problem-solving abilities, collaborative teamwork skills, and effective 
+                    communication capabilities. Committed to continuous learning and professional growth while 
+                    contributing meaningfully to organizational success through innovation, dedication, and adaptability.
+                </p>
+                <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--royal-gold); font-weight: bold;">2024</div>
+                        <div style="color: var(--champagne);">Graduate</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--emerald); font-weight: bold;">3+</div>
+                        <div style="color: var(--champagne);">Technologies</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; color: var(--rose-gold); font-weight: bold;">2</div>
+                        <div style="color: var(--champagne);">Major Projects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry =>
